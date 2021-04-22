@@ -1,6 +1,6 @@
 <template>
   <div class="app-wrapper">
-    <van-nav-bar title="demo2" style="line-height: 40px;font-size: 28px;"></van-nav-bar>
+    <van-nav-bar title="demo2"></van-nav-bar>
     <van-notice-bar
       wrapable
       :scrollable="false"
@@ -38,8 +38,8 @@ new Vue({
     </textarea>
 
     <div class="bottom-btns">
-      <van-button type="primary" url="/index.html">首页</van-button>
-      <van-button type="primary" @click="onCopy">复制</van-button>
+      <van-button class="btn" type="primary" url="/index.html">首页</van-button>
+      <van-button  class="btn" type="primary" @click="onCopy">复制</van-button>
     </div>
   </div>
 </template>
@@ -66,7 +66,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 * {
   margin: 0;
   padding: 0;
@@ -90,6 +90,10 @@ html, body, .app-wrapper {
 .bottom-btns {
   bottom: 0;
   padding: 20px;
+
+  .btn {
+    margin-right: 10px;
+  }
 }
 </style>
 
