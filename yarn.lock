@@ -814,6 +814,13 @@ resolve@^1.19.0:
     is-core-module "^2.2.0"
     path-parse "^1.0.6"
 
+rollup-plugin-px2vw@0.1.0:
+  version "0.1.0"
+  resolved "https://registry.nlark.com/rollup-plugin-px2vw/download/rollup-plugin-px2vw-0.1.0.tgz#7fae49eb3e2b89d06e8b85a868942957d59ae2d8"
+  integrity sha1-f65J6z4ridBui4WoaJQpV9Wa4tg=
+  dependencies:
+    "@rollup/pluginutils" "^4.1.0"
+
 rollup@^2.38.5:
   version "2.45.2"
   resolved "https://registry.npm.taobao.org/rollup/download/rollup-2.45.2.tgz?cache=0&sync_timestamp=1618288754010&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Frollup%2Fdownload%2Frollup-2.45.2.tgz#8fb85917c9f35605720e92328f3ccbfba6f78b48"

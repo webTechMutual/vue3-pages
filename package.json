@@ -14,6 +14,7 @@
     "@rollup/pluginutils": "^4.1.0",
     "@vitejs/plugin-vue": "^1.2.1",
     "@vue/compiler-sfc": "^3.0.5",
+    "rollup-plugin-px2vw": "0.1.0",
     "sass": "^1.32.10",
     "vite": "^2.1.5",
     "vite-plugin-imp": "^2.0.7"

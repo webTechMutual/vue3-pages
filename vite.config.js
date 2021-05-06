@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vitePluginImp from 'vite-plugin-imp'
-import px2vw from './rollup-plugin-px2vw'
+import px2vw from 'rollup-plugin-px2vw'
 import { resolve } from 'path'
 
 // https://vitejs.dev/config/
