@@ -33,10 +33,11 @@ export default defineConfig({
     // })
   ],
   build: {
+    outDir: resolve(__dirname, 'dist'),
     rollupOptions: {
       input: {
-        // main: resolve(__dirname, 'src/index.html'),
-        // page1: resolve(__dirname, 'page1/index.html')
+        index: resolve(__dirname, 'src/index.html'),
+        list: resolve(__dirname, 'src/list.html')
       }
     }
   }
