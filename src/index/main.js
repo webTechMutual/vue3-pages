@@ -1,4 +1,4 @@
-import '../commons/global.css'
+import '../commons/global.scss'
 
 import { createApp } from 'vue'
 

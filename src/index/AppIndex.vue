@@ -29,9 +29,11 @@ export default {
 }
 </script>
 
-<style>
-.test-demo {
+<style lang="scss">
+.app-wrapper {
+  .test-demo {
   line-height: 36px;
   background-color: #336699;
+  }
 }
 </style>

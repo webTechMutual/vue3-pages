@@ -1,8 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vitePluginImp from 'vite-plugin-imp'
-import px2vw from 'rollup-plugin-px2vw'
-import postcssPxToViewport from 'postcss-px-to-viewport'
 import { resolve } from 'path'
 
 // https://vitejs.dev/config/
@@ -25,12 +23,7 @@ export default defineConfig({
           return `vant/es/${name}/style/index.js`
         }
       }]
-    }),
-    // px2vw({
-    //   include: /\.css$|\.s[ac]ss$|\.vue$/,
-    //   // exclude: /node_modules/,
-    //   viewportWidth: 360
-    // })
+    })
   ],
   build: {
     outDir: resolve(__dirname, 'dist'),
