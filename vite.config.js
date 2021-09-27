@@ -1,3 +1,4 @@
+import fs from 'fs'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vitePluginImp from 'vite-plugin-imp'
