@@ -9,11 +9,14 @@
     
     <div class="test-demo">111</div>
     <div style="height: 36px; font-size: 15px;">行内样式</div>
+
+    <CircularProgerss/>
   </div>
 </template>
 
 <script>
 import {NavBar, List, Cell, Tabbar, TabbarItem} from 'vant'
+import CircularProgerss from './components/CircularProgress.vue'
 export default {
   data () {
     return {}
@@ -24,7 +27,8 @@ export default {
     [List.name]: List,
     [Cell.name]: Cell,
     [Tabbar.name]: Tabbar,
-    [TabbarItem.name]: TabbarItem
+    [TabbarItem.name]: TabbarItem,
+    CircularProgerss
   }  
 }
 </script>
