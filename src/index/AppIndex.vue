@@ -14,12 +14,19 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import {NavBar, List, Cell, Tabbar, TabbarItem} from 'vant'
 import CircularProgerss from './components/CircularProgress.vue'
+
 export default {
   data () {
-    return {}
+    return {
+      book: {
+        title: 'Vue 3 Guide',
+        author: 'Vue Team',
+        year: 2020       
+      }
+    }
   },
 
   components: {
