@@ -25,7 +25,8 @@ export default {
         title: 'Vue 3 Guide',
         author: 'Vue Team',
         year: 2020       
-      }
+      },
+      active: ''
     }
   },
 
