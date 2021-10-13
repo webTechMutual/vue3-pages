@@ -2,11 +2,15 @@
 {
   "compilerOptions": {
     "isolatedModules": true,
-    "target": "esnext",
-    "module": "esnext",
+    "moduleResolution": "node",
     // 这样就可以对 `this` 上的数据属性进行更严格的推断
     "strict": true,
-    "moduleResolution": "node",
-    "types": ["vite/client"]
+    "target": "ESNext",
+    "module": "ES2015",
+    "types": ["vite/client"],
+    "lib": [ "es2015" ],
+    "typeRoots": [
+      "./node_modules/vue/types"
+    ],
   }
 }
