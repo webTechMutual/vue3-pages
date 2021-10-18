@@ -17,6 +17,7 @@
 <script lang="ts">
 import {NavBar, List, Cell, Tabbar, TabbarItem} from 'vant'
 import CircularProgerss from './components/CircularProgress.vue'
+import fly from '../commons/request'
 
 export default {
   data () {
@@ -37,7 +38,11 @@ export default {
     [Tabbar.name]: Tabbar,
     [TabbarItem.name]: TabbarItem,
     CircularProgerss
-  }  
+  },
+  
+  created () {
+    fly.get('http://baidu.com')
+  }
 }
 </script>
 
