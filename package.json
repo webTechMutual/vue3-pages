@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@types/node": "^16.11.1",
+    "dsbridge": "^3.1.4",
     "flyio": "^0.6.14",
     "vant": "^3.0.14",
     "vue": "^3.0.5"

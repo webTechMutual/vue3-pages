@@ -552,6 +552,11 @@ dot-case@^3.0.4:
     no-case "^3.0.4"
     tslib "^2.0.3"
 
+dsbridge@^3.1.4:
+  version "3.1.4"
+  resolved "https://registry.npm.taobao.org/dsbridge/download/dsbridge-3.1.4.tgz#2cd598def017df8f729b40d33bc9c72934d44e19"
+  integrity sha1-LNWY3vAX349ym0DTO8nHKTTUThk=
+
 ecc-jsbn@~0.1.1:
   version "0.1.2"
   resolved "https://registry.nlark.com/ecc-jsbn/download/ecc-jsbn-0.1.2.tgz#3a83a904e54353287874c564b7549386849a98c9"

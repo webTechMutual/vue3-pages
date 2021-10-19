@@ -5,3 +5,6 @@ declare module "*.vue" {
   const component: Component
   export default component
 }
+
+declare var EngineWrapper : any
+declare var dsbAdapter : any
