@@ -46,6 +46,7 @@ export default defineComponent({
   created () {
     this.loadTab()
     this.test()
+    this.$req('get', 'http://www.baidu.com')
   },
 
   components: {

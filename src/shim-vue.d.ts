@@ -9,6 +9,6 @@ declare module "*.vue" {
 
 declare module "@vue/runtime-core" {
   interface ComponentCustomProperties {
-    $req: any,
+    $req: (method: string, url: string,data?: any, options?: object) => Promise<any>,
   }
 }
