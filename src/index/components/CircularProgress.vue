@@ -11,7 +11,7 @@
   </svg>
 </template>
 
-<script>
+<script lang="ts">
 const widthRatio = window.screen.width / 360
 export default {
   data () {
