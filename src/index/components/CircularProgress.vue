@@ -12,14 +12,21 @@
 </template>
 
 <script lang="ts">
+import { 
+  defineComponent
+} from 'vue'
 const widthRatio = window.screen.width / 360
-export default {
+export default defineComponent({
   data () {
     return {
       viewBox: `${-125 * widthRatio} ${-75 * widthRatio} ${250 * widthRatio} ${150 * widthRatio}`
     }
+  },
+
+  created () {
+    console.log('circular route:', this.$route)
   }
-}
+})
 </script>
 
 <style lang="scss">

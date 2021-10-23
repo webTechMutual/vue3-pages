@@ -1,5 +1,10 @@
 import '../commons/global.scss'
 import { createApp } from 'vue'
+import router from "./router/index"
 import App from './AppIndex.vue'
+import req from '../commons/req'
 
-createApp(App).mount('#app')
+const app = createApp(App)
+app.use(router)
+app.config.globalProperties.$req = req
+app.mount('#app')
