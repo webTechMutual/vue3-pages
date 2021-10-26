@@ -7,3 +7,4 @@
 * [vant官方文档](https://vant-contrib.gitee.io/vant/v3/#/zh-CN/home) 
 * [rollup](https://rollupjs.org/guide/en/#big-list-of-options) 
 * [Typescript](https://www.tslang.cn/docs/home.html)
+* [flyio](https://wendux.github.io/dist/#/doc/flyio/readme)
