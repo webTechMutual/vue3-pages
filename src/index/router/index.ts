@@ -5,6 +5,11 @@ const routes = [
     path: "/",
     name: "usage",
     component: () => import("../components/CircularProgress.vue"),
+  },
+  {
+    path: "/popover",
+    name: "usage",
+    component: () => import("../components/Popover.vue"),
   }
 ];
 
