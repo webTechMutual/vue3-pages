@@ -48,6 +48,7 @@ export {
 
 export default {
   install: (app:any) => {
+    console.log('install req')
     app.provide('req', req)
     app.config.globalProperties.$req = req
   }
