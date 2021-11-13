@@ -1,13 +1,7 @@
 <template>
   <div class="qi-pop-wrapper">
-    <teleport to="body">
-      <div class="pop-container" v-if="visible">
-        <slot name="content"></slot>     
-      </div>
-    </teleport>
-
-    <div class="trigger" @click.stop="onToggle">
-      <slot></slot>
+    <div class="pop-container" v-if="visible">
+      <slot name="content"></slot>     
     </div>
   </div>
 </template>
@@ -17,7 +11,7 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   data () {
     return {
-      visible: false
+      visible: true
     }
   },
 
@@ -44,14 +38,14 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .pop-container {
-  padding: 5px;
+  padding: 10px;
   min-width:20px;
   min-height: 20px;
   max-width: 100%;
-  box-sizing: border-box;
   position: fixed;
   top: 20px;
   left: 20px;
+  margin-left: 20px;
   border: 0.5px solid #eee;
   border-radius: 10px;
   background-color: #fff;
@@ -73,7 +67,6 @@ export default defineComponent({
   &::after {
     border-color: #fff transparent transparent;
     bottom: -5px;
-
   }
 }
 </style>
