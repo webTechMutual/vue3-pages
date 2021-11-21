@@ -1,7 +1,7 @@
 <template>
   <div class="app-wrapper">
     <p class="scroll-p" @touchmove="onTouchMove">
-      这里的 lovingVue 的值将会传入这个名为 checked 的 prop。同时当 触发一个 change 事件并附带一个新的值的时候,这个 lovingVue 的 property 将会被更新
+      即可开端口大打的费 案件发康师傅 发生的反馈  发发收款
     </p>
 
     <QiPop>
@@ -22,7 +22,7 @@ export default defineComponent({
   methods: {
     onTouchMove (e:TouchEvent) {
       console.log('onTouche:', e)
-
+      this.$test('test')
     }
   } 
 })
@@ -33,7 +33,7 @@ export default defineComponent({
   margin:0;
   padding: 0;
 }
-html, body, #app, .app-wrapper{
+html, body {
   height: 100%;
 }
 .text-block {
