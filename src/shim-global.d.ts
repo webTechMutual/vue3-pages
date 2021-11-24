@@ -7,3 +7,5 @@ declare interface Window {
   decrypt: (data: string) => string
 }
 
+declare var F2: any
+

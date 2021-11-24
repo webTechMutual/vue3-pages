@@ -10,3 +10,4 @@
 * [flyio](https://wendux.github.io/dist/#/doc/flyio/readme)
 * [pako](http://nodeca.github.io/pako/#gzip)：gzip压缩和解压缩
 * [crypto-js](https://github.com/brix/crypto-js)
+* [F2](https://f2.antv.vision/zh)

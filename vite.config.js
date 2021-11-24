@@ -30,7 +30,9 @@ export default defineConfig({
     rollupOptions: {
       input: {
         index: resolve(__dirname, 'src/index.html'),
-        list: resolve(__dirname, 'src/list.html')
+        list: resolve(__dirname, 'src/list.html'),
+        pop: resolve(__dirname, 'src/pop.html'),
+        chart: resolve(__dirname, 'src/chart.html')
       }
     }
   }
