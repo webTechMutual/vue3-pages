@@ -1,51 +1,65 @@
 <template>
   <div class="app-wrapper">
-    <div class="page-nav">多页vue3项目演示</div>
-    <van-list>
-      <van-cell title="列表页" is-link url="/list.html"/>
-    </van-list>
-
-    <van-tabbar v-model="active" active-color="#ee0a24" inactive-color="#000" fixed></van-tabbar>
-    
-    <div class="test-demo">111</div>
-    <div style="height: 36px; font-size: 15px;">行内样式</div>
-
-    <CircularProgerss/>
+    <h1>Vue3 多页面开发{{name}}</h1>
+    <router-view v-slot="{ Component }">
+    <keep-alive include="usage">
+      <component class="view" :is="Component" />
+    </keep-alive>
+  </router-view>
   </div>
 </template>
 
 <script lang="ts">
-import {NavBar, List, Cell, Tabbar, TabbarItem} from 'vant'
-import CircularProgerss from './components/CircularProgress.vue'
-
-export default {
-  data () {
+import { 
+  defineComponent,
+  ref
+} from 'vue'
+import CircularProgressVue from './components/CircularProgress.vue'
+export default defineComponent({
+  setup () {
+    const name = ref('kol')
     return {
-      book: {
-        title: 'Vue 3 Guide',
-        author: 'Vue Team',
-        year: 2020       
+      name,
+      load () {
+        console.log('load')
       },
-      active: ''
+      test () {
+        console.log('test')
+      }
     }
   },
 
+  data () {
+    return {}
+  },
+
+  methods: {
+    async loadTab () {
+      await new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(true)
+        }, 1000)
+      })
+    }
+  },
+
+  created () {
+    this.loadTab()
+    this.test()
+    // this.$req('get', 'http://www.baidu.com')
+  },
+
   components: {
-    [NavBar.name]: NavBar,
-    [List.name]: List,
-    [Cell.name]: Cell,
-    [Tabbar.name]: Tabbar,
-    [TabbarItem.name]: TabbarItem,
-    CircularProgerss
-  }  
-}
+    CircularProgressVue
+  }
+})
 </script>
 
 <style lang="scss">
 .app-wrapper {
   .test-demo {
-  line-height: 36px;
-  background-color: #336699;
+    line-height: 36px;
+    background-color: #336699;
   }
 }
 </style>
