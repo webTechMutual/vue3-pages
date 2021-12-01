@@ -13,7 +13,6 @@ const polarRadius = chartWidth / 2
 const barWidth = 12
 const exceedAngle = Math.asin((chartHeight - polarRadius) / polarRadius)
 
-
 Shape.registerShape('interval', 'protractor', {
   draw: function (cfg: any, container: any) {
     const points = this.parsePoints(cfg.points)
@@ -48,6 +47,9 @@ Shape.registerShape('interval', 'protractor', {
     return container.addShape('Custom', {
       className: 'interval-polar-tick',
       createPath (context:any) {
+        // 设置渐变色
+        const linearGradient = context.createLinearGradient(0, points[0].y, 2 * r, points[1].y)
+
         // 绘制灰色圆环
         context.beginPath()
         context.lineWidth = cfg.size
@@ -63,8 +65,6 @@ Shape.registerShape('interval', 'protractor', {
         context.arc(x, y, radius, startAngle, endAngle)
         context.stroke()
         context.closePath()
-
-        
       }
     })
   }
@@ -82,7 +82,7 @@ export default defineComponent({
   mounted () {
     const data = [{
       const: 'a',
-      actual:300,
+      actual:200,
       expect: 300
     }]
 
