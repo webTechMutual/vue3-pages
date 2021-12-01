@@ -7,8 +7,8 @@
     <h4>自定义图形Ruler</h4>
     <Ruler />
 
-    <h4>自定义图形protractor</h4>
-
+    <h4>自定义图形Protractor</h4>
+    <Protractor />
   </div>
 </template>
 
@@ -16,11 +16,13 @@
 import { defineComponent } from 'vue'
 import RingChart from './RingChart.vue'
 import Ruler from './Ruler.vue'
+import Protractor from './Protractor.vue'
 
 export default defineComponent({
   components: {
     RingChart,
-    Ruler
+    Ruler,
+    Protractor
   },
 
   methods: {
