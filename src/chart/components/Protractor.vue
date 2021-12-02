@@ -4,11 +4,12 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import color from '../../commons/color'
 const Shape = F2.Shape
 const Vector2 = F2.G.Vector2
 
 const chartWidth = 150
-const chartHeight = 90
+const chartHeight = 100
 const polarRadius = chartWidth / 2
 const barWidth = 12
 const exceedAngle = Math.asin((chartHeight - polarRadius) / polarRadius)
@@ -16,7 +17,6 @@ const exceedAngle = Math.asin((chartHeight - polarRadius) / polarRadius)
 Shape.registerShape('interval', 'protractor', {
   draw: function (cfg: any, container: any) {
     const points = this.parsePoints(cfg.points)
-    console.log('points:', points)
 
     let newPoints = points.slice(0)
     if (this._coord.transposed) {
@@ -33,12 +33,22 @@ Shape.registerShape('interval', 'protractor', {
 
     const radius = r - cfg.size / 2
 
-    const roundAngle = Math.asin(cfg.size / 2 / r)
-    let startAngle = Vector2.angleTo(v, v1) + roundAngle
-    let endAngle =  Vector2.angleTo(v, v2) - roundAngle
+    const roundAngle = Math.asin(cfg.size / 2 / radius)
+    let startAngle = Vector2.angleTo(v, v1)
+    // 起始和结束之间的角度
+    let endAngle = Vector2.angleTo(v, v2)
 
-    if (startAngle >= 1.5 * Math.PI) {
-      startAngle = startAngle - 2 * Math.PI;
+    if (endAngle < startAngle) {
+      endAngle += 2 * Math.PI
+    }
+
+    const diffAngle = endAngle - startAngle
+    startAngle += roundAngle
+
+    if (diffAngle < 2 * roundAngle) {
+      endAngle = startAngle
+    } else {
+      endAngle -= roundAngle
     }
 
     // 圆环总共的角度，对称的，可以根据起始点算出来
@@ -49,6 +59,8 @@ Shape.registerShape('interval', 'protractor', {
       createPath (context:any) {
         // 设置渐变色
         const linearGradient = context.createLinearGradient(0, points[0].y, 2 * r, points[1].y)
+        linearGradient.addColorStop(0, '#7CE8D7')
+        linearGradient.addColorStop(1, color.getRadientColor('#7CE8D7', '#8DC0F2', (endAngle - startAngle) / totalAngle))
 
         // 绘制灰色圆环
         context.beginPath()
@@ -59,12 +71,37 @@ Shape.registerShape('interval', 'protractor', {
         context.stroke()
         context.closePath()
 
-        // 绘制百分比彩色圆环
-        context.beginPath()
-        context.strokeStyle = '#2356ef'
-        context.arc(x, y, radius, startAngle, endAngle)
-        context.stroke()
-        context.closePath()
+        // 绘制百分比彩色圆环和刻度线
+        if (diffAngle > 0) {
+          context.beginPath()
+          context.strokeStyle = linearGradient
+          context.arc(x, y, radius, startAngle, endAngle)
+          context.stroke()
+          context.closePath()
+
+          // 绘制刻度线
+          let axisLineAngle = startAngle
+          const pie1of20Angle = totalAngle / 20 // 将整个圆环分成20分
+          while (axisLineAngle <= endAngle ) {
+            const startRadius = radius + 2
+            const endRadius = radius - 2
+            const startX = startRadius * Math.cos(axisLineAngle) + x
+            const startY = startRadius * Math.sin(axisLineAngle) + y
+
+            const endX = endRadius * Math.cos(axisLineAngle) + x
+            const endY = endRadius * Math.sin(axisLineAngle) + y
+
+            context.beginPath()
+            context.lineWidth = 1
+            context.strokeStyle = 'rgba(255,255,255,0.4)'
+            context.moveTo(startX, startY)
+            context.lineTo(endX, endY)
+            context.stroke()
+            context.closePath()
+
+            axisLineAngle += pie1of20Angle
+          }
+        }
       }
     })
   }
@@ -82,7 +119,7 @@ export default defineComponent({
   mounted () {
     const data = [{
       const: 'a',
-      actual:200,
+      actual: 100,
       expect: 300
     }]
 
@@ -119,7 +156,7 @@ export default defineComponent({
       .shape('protractor')
       .color('l(0) 0:#7CE8D7 1:#8DC0F2')
       .size(barWidth)
-      .animate(false)
+      // .animate(false)
 
     chart.render()
   }

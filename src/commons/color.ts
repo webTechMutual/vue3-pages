@@ -9,6 +9,7 @@ const parseColor = (color: string) => {
 
 // 根据百分比计算渐变色，比如#000000渐变至#ffffff，那么百分之50%处的渐变色为#808080
 const getRadientColor = (startColor:string, endColor:string, rate:number) => {
+  console.log('rate:', rate)
   const startColors = parseColor(startColor)
   const endColors = parseColor(endColor)
   // 红色的差异值
